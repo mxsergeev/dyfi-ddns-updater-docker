@@ -6,7 +6,7 @@ A simple Dockerized Python script to update multiple dy.fi dynamic DNS hostnames
 
 - Update as many dy.fi hostnames as needed
 - Configurable via environment variables
-- Runs as a Docker container
+- Run as a Docker container
 
 ## Usage
 
@@ -19,7 +19,7 @@ cd dyfi-ddns-updater-docker
 
 ### 2. Configure Environment Variables
 
-Create a `.env` file or set the following variables:
+Create an `.env` file and set the following variables:
 
 - `DYFI_USER` – your dy.fi username
 - `DYFI_PASS` – your dy.fi password
@@ -41,9 +41,9 @@ Check logs to see if the updater is working correctly:
 docker compose logs -f
 ```
 
-### 5. Fresh start
+### 5. Reset
 
-If you want to start fresh, you can remove the Docker volume that stores the state:
+If things are not working as expected, you can reset the state by stopping the container and removing the volume:
 
 ```bash
 docker compose down
