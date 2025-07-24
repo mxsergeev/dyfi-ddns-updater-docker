@@ -6,6 +6,8 @@ services:
       - DYFI_USER=${DYFI_USER}
       - DYFI_PASS=${DYFI_PASS}
       - DYFI_HOSTS=${DYFI_HOSTS}
+    volumes:
+      - dyfi-data:/data
     restart: unless-stopped
 
 volumes:
