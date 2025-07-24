@@ -1,0 +1,31 @@
+# Python cache and build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+
+# Distribution / packaging
+build/
+dist/
+.eggs/
+
+# Installer logs
+debug.log
+pip-log.txt
+pip-delete-this-directory.txt
+
+# VS Code settings
+.vscode/
+
+# Docker
+*.pid
+docker-compose.override.yml
+
+# Project-specific
+/data/*.state
+/data/dyfi.log
+
+.env
+!.env.example
