@@ -9,9 +9,7 @@ import base64
 import re
 from pathlib import Path
 
-# Config
-STATE_DIR = os.environ.get("DYFI_STATE_DIR", "/data")
-LOG_FILE = os.environ.get("DYFI_LOG_FILE", None)  # If None, logs to stdout
+STATE_DIR = "/data"
 CHECKIP_URL = "http://checkip.dy.fi/"
 
 # 6 days in seconds (refresh before 7-day expiry, with random jitter)
@@ -20,11 +18,7 @@ UPDATE_INTERVAL = 6 * 24 * 60 * 60
 def log(msg):
     timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
     line = f"[{timestamp}] {msg}"
-    if LOG_FILE:
-        with open(LOG_FILE, "a") as f:
-            f.write(line + "\n")
-    else:
-        print(line)
+    print(line)
 
 def get_public_ip():
     try:

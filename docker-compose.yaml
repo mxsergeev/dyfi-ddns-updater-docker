@@ -6,10 +6,7 @@ services:
       - DYFI_USER=${DYFI_USER}
       - DYFI_PASS=${DYFI_PASS}
       - DYFI_HOSTS=${DYFI_HOSTS}
-      # Optional, default is /data
-      - DYFI_STATE_DIR=${DYFI_STATE_DIR}
-      # Optional, logs to stdout by default
-      - DYFI_LOG_FILE=${DYFI_LOG_FILE}
-    volumes:
-      - ./data:/data
     restart: unless-stopped
+
+volumes:
+  dyfi-data:

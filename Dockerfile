@@ -12,4 +12,4 @@ COPY dyfi_ddns_updater.py .
 VOLUME ["/data"]
 
 # Default command: pulls config from environment
-CMD ["python", "dyfi_ddns_updater.py"]
+CMD ["python", "-u", "dyfi_ddns_updater.py"]

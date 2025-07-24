@@ -1,11 +1,10 @@
 # dyfi-ddns-updater-docker
 
-A simple Dockerized Python script to update multiple dy.fi dynamic DNS hostnames automatically. It periodically checks your public IP and updates dy.fi if your IP changes or after a set interval.
+A simple Dockerized Python script to update multiple dy.fi dynamic DNS hostnames automatically. It periodically checks your public IP and updates dy.fi if your IP changes or after six days since the last update have passed (as per dy.fi's policy).
 
 ## Features
 
-- Supports multiple dy.fi hostnames
-- Stores state and logs in a persistent volume
+- Update as many dy.fi hostnames as needed
 - Configurable via environment variables
 - Runs as a Docker container
 
@@ -14,7 +13,7 @@ A simple Dockerized Python script to update multiple dy.fi dynamic DNS hostnames
 ### 1. Clone the repository
 
 ```
-git clone <this-repo-url>
+git clone https://github.com/mxsergeev/dyfi-ddns-updater-docker.git
 cd dyfi-ddns-updater-docker
 ```
 
@@ -25,26 +24,22 @@ Create a `.env` file or set the following variables:
 - `DYFI_USER` – your dy.fi username
 - `DYFI_PASS` – your dy.fi password
 - `DYFI_HOSTS` – comma-separated list of dy.fi hostnames (e.g. `myhost1.dy.fi,myhost2.dy.fi`)
-- `DYFI_STATE_DIR` – (optional) directory for state files (default: `/data`)
-- `DYFI_LOG_FILE` – (optional) log file path (default: logs to stdout)
+
+See `.env.example` for a template.
 
 ### 3. Run with Docker Compose
 
 ```
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
-### 4. Data Persistence
+### 4. Check Logs
 
-State and logs are stored in the `./data` directory, mapped to `/data` in the container.
+Check logs to see if the updater is working correctly:
 
-## File Structure
-
-- `dyfi_ddns_updater.py` – main updater script
-- `requirements.txt` – Python dependencies
-- `Dockerfile` – container build instructions
-- `docker-compose.yaml` – service configuration
-- `data/` – persistent state and logs
+```
+docker compose logs -f
+```
 
 ## License
 
