@@ -12,7 +12,7 @@ A simple Dockerized Python script to update multiple dy.fi dynamic DNS hostnames
 
 ### 1. Clone the repository
 
-```
+```bash
 git clone https://github.com/mxsergeev/dyfi-ddns-updater-docker.git
 cd dyfi-ddns-updater-docker
 ```
@@ -29,7 +29,7 @@ See `.env.example` for a template.
 
 ### 3. Run with Docker Compose
 
-```
+```bash
 docker compose up -d --build
 ```
 
@@ -37,8 +37,17 @@ docker compose up -d --build
 
 Check logs to see if the updater is working correctly:
 
-```
+```bash
 docker compose logs -f
+```
+
+### 5. Fresh start
+
+If you want to start fresh, you can remove the Docker volume that stores the state:
+
+```bash
+docker compose down
+docker volume rm dyfi-ddns-updater-docker_dyfi-data
 ```
 
 ## License
